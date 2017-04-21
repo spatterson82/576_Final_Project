@@ -28,8 +28,10 @@ html, body, .container {
 
 
 #panel2 {
-    background:red;
+    background:white;
     height: 100%;
+    text-align: center;
+    border: 2px solid black;
 }
 
 .row2 {
@@ -43,8 +45,36 @@ html, body, .container {
 }
 
 #address{
-    background: whitesmoke;
-    height: 25%;
+    background: white;
+    position: relative;
+    height: 20%;
     width: 100%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 5px;
+    text-align: left;
+    
+}
+
+#typedAddress{
+    position: absolute;
+    bottom: 0;
+    background: cyan;
+    height: 100%;
+    width: 100%;
+    padding-top: 5px;
+}
+
+input{
+    width: 100%;
+}
+
+#typedPrice{
+    position: absolute;
+    bottom: 0;
+    background: coral;
+    height: 40%;
+    width: 100%;
+    padding-top: 5px;
 }
 

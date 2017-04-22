@@ -51,30 +51,23 @@ html, body, .container {
     width: 100%;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding-top: 5px;
-    text-align: left;
-    
+    padding-top: 5px;    
 }
 
-#typedAddress{
+#QueryAddress{
+    background: hotpink;
     position: absolute;
     bottom: 0;
-    background: cyan;
     height: 100%;
     width: 100%;
-    padding-top: 5px;
+    text-align: left;
 }
-
-input{
-    width: 100%;
-}
-
-#typedPrice{
+#AddressResult{
+    background: khaki;
     position: absolute;
     bottom: 0;
-    background: coral;
-    height: 40%;
-    width: 100%;
-    padding-top: 5px;
+    height: 80%;
+    width: 75%;
+    text-align: left;
 }
 

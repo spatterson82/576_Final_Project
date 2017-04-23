@@ -67,7 +67,59 @@ html, body, .container {
     position: absolute;
     bottom: 0;
     height: 80%;
-    width: 75%;
+    width: 100%;
+    text-align: left;
+    border-top: 2px solid black;
+}
+#QueryPrice{
+    background: tomato;
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    text-align: left;
+    border-top: 2px solid black;
+}
+#PriceResult{
+    background: yellow;
+    position: absolute;
+    bottom:0;
+    height: 60%;
+    width: 100%;
+    text-align: left;
+    border-top: 2px solid black;
+}
+#midpanel{
+    background: peru;
+    height: auto;
+}
+#SquareFeet{
+    background: royalblue;
+    height: auto;
+    text-align: left;
+    border-top: 2px solid black;
+}
+#SqFeetResult{
+    background: lawngreen;
+    height: auto;
+    text-align: left;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+#BedsBaths{
+    background: lightgray;
+    height: auto;
     text-align: left;
 }
-
+#BedsBathsResult{
+    background: cornflowerblue;
+    height: auto;
+    text-align: left;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+#Picture{
+    background: navajowhite;
+    height: auto;
+    border-bottom: 2px solid black;
+}

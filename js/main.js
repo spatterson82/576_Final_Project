@@ -7,12 +7,16 @@
             zoom: 11
         });
         //add OSM base tilelayer
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        // L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+        // 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
+        // L.tileLayer('http://{s}.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png').addTo(map);
+        // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BhdHRlcnNvbjgiLCJhIjoiY2lzZzBnbmlxMDFzNjJzbnZ1cXJ0bDJ5cSJ9.r_0eIQ9LIuNS3LV-GL1AIg').addTo(map);
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BhdHRlcnNvbjgiLCJhIjoiY2lzZzBnbmlxMDFzNjJzbnZ1cXJ0bDJ5cSJ9.r_0eIQ9LIuNS3LV-GL1AIg').addTo(map);
         var house_icon = L.icon({
             iconUrl: 'img/house.png',
 
-            iconSize:     [30, 30], // size of the icon
+            iconSize:     [24, 24], // size of the icon
             iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
             popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
@@ -22,14 +26,12 @@
                 firstLineTitles: true,
                 fieldSeparator: ',',
                 onEachFeature: function (feature, layer) {
-                    console.log(feature);
                     layer.bindPopup(feature.properties["price"]);
                 },
                 pointToLayer: function (feature, latlng) {
                     return L.marker(latlng, {icon: house_icon});
                 }
             });
-            console.log(geoLayer);
             map.addLayer(geoLayer);
         });
     }

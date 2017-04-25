@@ -120,6 +120,7 @@ html, body, .container {
 }
 #Picture{
     background: navajowhite;
-    height: auto;
+    height: 100%;
+    width: 100%;
     border-bottom: 2px solid black;
 }

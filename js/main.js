@@ -2,6 +2,8 @@
     'use strict';
 
     function createMap() {
+        // Function to create map, set tiles, and add CSV data
+
         var map = L.map('mapid', {
             center: [43.02, -71.1],
             zoom: 11
@@ -36,6 +38,8 @@
 
 
     function createPopup(feature) {
+        // Function to create the pop up HTML layout
+
         var prop = feature.properties;
         var full_address = prop['address'] + ' ' + prop['city'] + ', ' +
             prop['state'] + ' ' + prop['zip'];

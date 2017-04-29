@@ -1,10 +1,33 @@
 form {
     padding-top: 50px;
     float: left;
+    line-height: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -10px;
+    line-height: 40px;
+}
+
+label {
+    font-size: 20px;
+}
+
+#zip-label {
+    margin-left: 180px;
+}
+
+input {
+    display: inline-block;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    font-size: 20px;
 }
 
 input[type=text], select {
-    width: 100%;
+    width: 49%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -15,7 +38,7 @@ input[type=text], select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #a5afae;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -25,7 +48,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #78afaa;
 }
 
 entryform {

@@ -25,13 +25,23 @@
 				<div class="row-fluid">
 					<div id="panel1">
 						<form action="#">
-							<label for="entrytype">Query Listings:</label>
-							<select id="entrytype">
-								<option value="pointentry">Price</option>
-								<option value="mappoints">Zip Code</option>
-								<option value="suggest">City</option>
+							<h1>New Hampshire</h1>
+							<h1>Real Estate</h1>
+							<br><br><br>
+							<label id="cities-label">City</label>
+							<label id="zip-label">Zipcode</label>
+							<select id="city-select" placeholder="city">
+								<option value="pointentry">City</option>
+							</select>
+							<select id="zip-select" placeholder="zipcode">
+								<option value="pointentry">Zipcode</option>
 							</select>
 							<br>
+							<label for="price">Search by price</label>
+							<br>
+							<input type="text" id="price" name="min-price" placeholder="min">
+							<input type="text" name="max-price" placeholder="max">
+							<br><br>
 							<input type="submit" value="Search">
 						</form>
 					</div>

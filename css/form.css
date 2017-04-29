@@ -22,7 +22,7 @@ input {
     display: inline-block;
     box-sizing: border-box;
 }
-input[type=submit] {
+input[type=submit], input[type=reset] {
     font-size: 20px;
 }
 
@@ -36,7 +36,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit], input[type=reset] {
     width: 100%;
     background-color: #a5afae;
     color: white;
@@ -47,7 +47,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, input[type=reset]:hover {
     background-color: #78afaa;
 }
 

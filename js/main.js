@@ -1,25 +1,23 @@
 (function() {
     'use strict';
 
+    var map = L.map('mapid', {
+        center: [43.02, -71.1],
+        zoom: 11
+    });
+
+    var house_icon = L.icon({
+        iconUrl: 'img/blue_house.png',
+
+        iconSize:     [26, 26], // size of the icon
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor:  [0, -90] // point from which the popup should open relative to the iconAnchor
+    });
+
+
+    // Function to create map, set tiles, and add CSV data
     function createMap() {
-        // Function to create map, set tiles, and add CSV data
-
-        var map = L.map('mapid', {
-            center: [43.02, -71.1],
-            zoom: 11
-        });
-
         L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BhdHRlcnNvbjgiLCJhIjoiY2lzZzBnbmlxMDFzNjJzbnZ1cXJ0bDJ5cSJ9.r_0eIQ9LIuNS3LV-GL1AIg').addTo(map);
-
-
-        var house_icon = L.icon({
-            iconUrl: 'img/blue_house.png',
-
-            iconSize:     [26, 26], // size of the icon
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-            popupAnchor:  [0, -90] // point from which the popup should open relative to the iconAnchor
-        });
-
 
         $.get('data/listings.csv', function (csvContents) {
             var geoLayer = L.geoCsv(csvContents, {
@@ -103,6 +101,8 @@
 
             $("#city-select").html(cities_output.join('')).prop('disabled', false).css('background-color', 'white');
             $("#zip-select").html(zipcodes_output.join('')).prop('disabled', false).css('background-color', 'white');
+            $("#min-price").val('');
+            $("#max-price").val('');
         });
     }
 
@@ -132,8 +132,60 @@
 
     // reset button to set query back to default
     $('#reset').on('click', function() {
+        clearLayer(map);
+        createMap();
         set_query_items();
+    });
+
+
+    // functionality to query points after clicking search button
+    $('#search').on('click', function(e) {
+        console.log('testing');
+        var min = $('#min-price').val();
+        var max = $('#max-price').val();
+        var city = $('#city-select :selected').text();
+        var zip = $('#zip-select :selected').text();
+        console.log(min, max, city, zip);
+
+        filterPropSymbols(map);
+
     })
+
+    // function to clear json points
+    function clearLayer(my_map) {
+        my_map.eachLayer(function(layer) {
+            if (layer.feature) { //&& layer.feature.properties[attribute])
+                var json_layer = layer;
+                my_map.removeLayer(json_layer);
+            };
+        });
+    };
+
+
+    // filter based on query boxes
+    function filterPropSymbols(map, attribute) {
+        clearLayer(map);
+
+        // $.get('data/listings.csv', function (csvContents) {
+        //     var geoLayer = L.geoCsv(csvContents, {
+        //         firstLineTitles: true,
+        //         fieldSeparator: ',',
+        //         onEachFeature: function (feature, layer) {
+        //             layer.bindPopup(createPopup(feature));
+        //             layer.on('mouseover', function (e) {
+        //                 this.openPopup();
+        //             }),
+        //                 layer.on('mouseout', function (e) {
+        //                     layer.closePopup();
+        //                 });
+        //         },
+        //         pointToLayer: function (feature, latlng) {
+        //             return L.marker(latlng, {icon: house_icon});
+        //         }
+        //     });
+        //     map.addLayer(geoLayer);
+        // });
+    }
 
 
 

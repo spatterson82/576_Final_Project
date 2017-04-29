@@ -55,7 +55,7 @@ html, body, .container {
 }
 
 #QueryAddress{
-    background: hotpink;
+    background: white;
     position: absolute;
     bottom: 0;
     height: 100%;
@@ -63,7 +63,7 @@ html, body, .container {
     text-align: left;
 }
 #AddressResult{
-    background: khaki;
+    background: white;
     position: absolute;
     bottom: 0;
     height: 80%;
@@ -72,7 +72,7 @@ html, body, .container {
     border-top: 2px solid black;
 }
 #QueryPrice{
-    background: tomato;
+    background: white;
     position: absolute;
     bottom: 0;
     height: 50%;
@@ -81,7 +81,7 @@ html, body, .container {
     border-top: 2px solid black;
 }
 #PriceResult{
-    background: yellow;
+    background: white;
     position: absolute;
     bottom:0;
     height: 60%;
@@ -90,36 +90,36 @@ html, body, .container {
     border-top: 2px solid black;
 }
 #midpanel{
-    background: peru;
+    background: white;
     height: auto;
 }
 #City{
-    background: royalblue;
+    background: white;
     height: auto;
     text-align: left;
     border-top: 2px solid black;
 }
 #CityResult{
-    background: lawngreen;
+    background: white;
     height: auto;
     text-align: left;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }
 #Zip{
-    background: lightgray;
+    background: white;
     height: auto;
     text-align: left;
 }
 #ZipResult{
-    background: cornflowerblue;
+    background: white;
     height: auto;
     text-align: left;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }
 #Picture{
-    background: navajowhite;
+    background: white;
     height: 100%;
     width: 100%;
     border-bottom: 2px solid black;

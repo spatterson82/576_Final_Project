@@ -60,13 +60,6 @@
 
         return pop_up;
 
-        // $(pop_up).click(function(){
-        //     $("#AddressResult").text(prop['address'])
-        //     $("#PriceResult").text(prop['price2'])
-        //     $("#CityResult").text(prop['city'])
-        //     $("#ZipResult").text(prop['zip'])
-        //     $("#Picture").attr({"img": prop['photo']})
-        // });
     };
 
 
@@ -174,6 +167,13 @@
                     }),
                     layer.on('mouseout', function (e) {
                         layer.closePopup();
+                    });
+                    layer.on("click", function(e){
+                        $("#AddressResult").text(prop['address'])
+                        $("#PriceResult").text(prop['price2'])
+                        $("#CityResult").text(prop['city'])
+                        $("#ZipResult").text(prop['zip'])
+                        $("#Picture").attr({"img": prop['photo']})
                     });
                 },
                 pointToLayer: function (feature, latlng) {

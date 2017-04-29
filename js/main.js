@@ -27,6 +27,12 @@
                 fieldSeparator: ',',
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup(createPopup(feature));
+                    layer.on('mouseover', function (e) {
+                        this.openPopup();
+                    }),
+                    layer.on('mouseout', function (e) {
+                        layer.closePopup();
+                    });
                 },
                 pointToLayer: function (feature, latlng) {
                     return L.marker(latlng, {icon: house_icon});
@@ -95,13 +101,8 @@
                     sorted_zipcodes[i], '</option>');
             }
 
-            $("#city-select").html(cities_output.join(''));
-            $("#zip-select").html(zipcodes_output.join(''));
-
-            $("#city-select").prop('disabled', false);
-            $("#zip-select").prop('disabled', false);
-            $('#city-select').css('background-color', 'white');
-            $('#zip-select').css('background-color', 'white');
+            $("#city-select").html(cities_output.join('')).prop('disabled', false).css('background-color', 'white');
+            $("#zip-select").html(zipcodes_output.join('')).prop('disabled', false).css('background-color', 'white');
         });
     }
 
@@ -137,12 +138,14 @@
 
 
     $(document).ready(createMap);
-    $(document).click(function(){
-            $("#AddressResult").text(prop['address'])
-            $("#PriceResult").text(prop['price2'])
-            $("#CityResult").text(prop['city'])
-            $("#ZipResult").text(prop['zip'])
-            $("#Picture").attr({"img": prop['photo']})
-        });
+
+
+    // $(document).click(function(){
+    //         $("#AddressResult").text(prop['address'])
+    //         $("#PriceResult").text(prop['price2'])
+    //         $("#CityResult").text(prop['city'])
+    //         $("#ZipResult").text(prop['zip'])
+    //         $("#Picture").attr({"img": prop['photo']})
+    //     });
 
 })();

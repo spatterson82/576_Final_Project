@@ -192,7 +192,7 @@
                         return prop['price'] < max;
                     }
                     else if (!min && !max && city === 'Select') {
-                            // search by zip only
+                        // search by zip only
                         return Number(prop['zip']) === Number(zip);
                     } else if (!min && !max && zip === 'Select') {
                         // search by city only

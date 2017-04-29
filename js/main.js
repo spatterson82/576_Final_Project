@@ -53,6 +53,14 @@
                 '<br /><img src="' + prop['photo'] + '" height="200" width="200"></p>');
 
         return pop_up;
+
+        // $(pop_up).click(function(){
+        //     $("#AddressResult").text(prop['address'])
+        //     $("#PriceResult").text(prop['price2'])
+        //     $("#CityResult").text(prop['city'])
+        //     $("#ZipResult").text(prop['zip'])
+        //     $("#Picture").attr({"img": prop['photo']})
+        // });
     };
 
 
@@ -105,5 +113,12 @@
 
 
     $(document).ready(createMap);
+    $(document).click(function(){
+            $("#AddressResult").text(prop['address'])
+            $("#PriceResult").text(prop['price2'])
+            $("#CityResult").text(prop['city'])
+            $("#ZipResult").text(prop['zip'])
+            $("#Picture").attr({"img": prop['photo']})
+        });
 
 })();

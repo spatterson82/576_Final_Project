@@ -83,7 +83,6 @@
             zipcodes_output.push('<option value="city-entry', '">',
                 sorted_zipcodes[i], '</option>');
         }
-        // TODO need to grey out a select if other is used
         $("#city-select").html(cities_output.join(''));
         $("#zip-select").html(zipcodes_output.join(''));
     });
@@ -99,6 +98,10 @@
         }
         return ret;
     }
+
+    // TODO need to grey out a select if other is used
+    // var $el = $('input[name=foo]');
+    // $el.attr('disabled', 'disabled');
 
 
     $(document).ready(createMap);

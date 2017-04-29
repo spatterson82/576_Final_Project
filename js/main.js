@@ -140,51 +140,87 @@
 
     // functionality to query points after clicking search button
     $('#search').on('click', function(e) {
-        console.log('testing');
         var min = $('#min-price').val();
         var max = $('#max-price').val();
         var city = $('#city-select :selected').text();
         var zip = $('#zip-select :selected').text();
-        console.log(min, max, city, zip);
 
-        filterPropSymbols(map);
+        filter_icons(map, min, max, city, zip);
 
     })
 
-    // function to clear json points
+    // function to clear all layers
     function clearLayer(my_map) {
         my_map.eachLayer(function(layer) {
-            if (layer.feature) { //&& layer.feature.properties[attribute])
-                var json_layer = layer;
-                my_map.removeLayer(json_layer);
+            if (layer.feature) {
+                my_map.removeLayer(layer);
             };
         });
     };
 
 
     // filter based on query boxes
-    function filterPropSymbols(map, attribute) {
+    function filter_icons(map, min, max, city, zip) {
         clearLayer(map);
 
-        // $.get('data/listings.csv', function (csvContents) {
-        //     var geoLayer = L.geoCsv(csvContents, {
-        //         firstLineTitles: true,
-        //         fieldSeparator: ',',
-        //         onEachFeature: function (feature, layer) {
-        //             layer.bindPopup(createPopup(feature));
-        //             layer.on('mouseover', function (e) {
-        //                 this.openPopup();
-        //             }),
-        //                 layer.on('mouseout', function (e) {
-        //                     layer.closePopup();
-        //                 });
-        //         },
-        //         pointToLayer: function (feature, latlng) {
-        //             return L.marker(latlng, {icon: house_icon});
-        //         }
-        //     });
-        //     map.addLayer(geoLayer);
-        // });
+        $.get('data/listings.csv', function (csvContents) {
+            var geoLayer = L.geoCsv(csvContents, {
+                firstLineTitles: true,
+                fieldSeparator: ',',
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup(createPopup(feature));
+                    layer.on('mouseover', function (e) {
+                        this.openPopup();
+                    }),
+                    layer.on('mouseout', function (e) {
+                        layer.closePopup();
+                    });
+                },
+                pointToLayer: function (feature, latlng) {
+                    return L.marker(latlng, {icon: house_icon});
+                },
+                filter: function (feature) {
+                    var prop = feature.properties;
+                    if (min && max && city === 'Select' && zip === 'Select') {
+                        // search by min and max price only
+                        return prop['price'] > min && prop['price'] < max
+                    } else if (!max && city === 'Select' & zip === 'Select') {
+                        // search by min only
+                        return prop['price'] > min;
+                    } else if (!min && city === 'Select' & zip === 'Select') {
+                        // search by max only
+                        return prop['price'] < max;
+                    }
+                    else if (!min && !max && city === 'Select') {
+                            // search by zip only
+                        return Number(prop['zip']) === Number(zip);
+                    } else if (!min && !max && zip === 'Select') {
+                        // search by city only
+                        return prop['city'] === city.trim();
+                    } else if (!max && city && zip === 'Select') {
+                        // search by city and min price
+                        return prop['city'] === city.trim() && prop['price'] > min;
+                    } else if (!min && city && zip === 'Select') {
+                        // search by city and max price
+                        return prop['city'] === city.trim() && prop['price'] < max;
+                    } else if (!max && zip && city === 'Select') {
+                        // search by zip and min price
+                        return Number(prop['zip']) === Number(zip) && prop['price'] > min;
+                    } else if (!min && zip && city === 'Select') {
+                        // search by zip and max price
+                        return Number(prop['zip']) === Number(zip) && prop['price'] < max;
+                    } else if (zip && max && min && city === 'Select') {
+                        // search by zip and between max and min
+                        return Number(prop['zip']) === Number(zip) && (prop['price'] > min && prop['price'] < max);
+                    } else if (city && max && min && zip === 'Select') {
+                        // search by city and between max and min
+                        return prop['city'] === city.trim() && (prop['price'] > min && prop['price'] < max);
+                    } else {
+                    }
+                }
+            });
+            map.addLayer(geoLayer);
+        });
     }
 
 

@@ -56,6 +56,51 @@
     };
 
 
+    // Load city and zip options
+    var cities = [];
+    var zipcodes = [];
+    $.get('data/listings.csv', function(result) {
+        var csv_results = result.split(/\r\n|\n/);
+        csv_results = csv_results.slice(1,csv_results.length)
+        for (var i in csv_results) {
+            var row = csv_results[i].split(',');
+            cities.push(row[2]);
+            zipcodes.push(row[4]);
+        }
+        var sorted_cities = sort_unique(cities);
+        var sorted_zipcodes = sort_unique(zipcodes);
+
+        var cities_output = [];
+        cities_output.push('<option value="" disabled selected hidden>Select</option>')
+        for (var i in sorted_cities) {
+            cities_output.push('<option value="city-entry', '">',
+                sorted_cities[i], '</option>');
+        }
+
+        var zipcodes_output = [];
+        zipcodes_output.push('<option value="" disabled selected hidden>Select</option>')
+        for (var i in sorted_zipcodes) {
+            zipcodes_output.push('<option value="city-entry', '">',
+                sorted_zipcodes[i], '</option>');
+        }
+        // TODO need to grey out a select if other is used
+        $("#city-select").html(cities_output.join(''));
+        $("#zip-select").html(zipcodes_output.join(''));
+    });
+
+    function sort_unique(arr) {
+        if (arr.length === 0) return arr;
+        arr = arr.sort(function (a, b) { return a*1 - b*1; });
+        var ret = [arr[0]];
+        for (var i = 1; i < arr.length; i++) { // start loop at 1 as element 0 can never be a duplicate
+            if (arr[i-1] !== arr[i]) {
+                ret.push(arr[i]);
+            }
+        }
+        return ret;
+    }
+
+
     $(document).ready(createMap);
 
 })();

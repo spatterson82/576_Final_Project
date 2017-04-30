@@ -31,6 +31,13 @@
                     layer.on('mouseout', function (e) {
                         layer.closePopup();
                     });
+                    layer.on("click", function(e){
+                        $("#AddressResult").text(csvContent.properties['address'])
+                        $("#PriceResult").text(csvContent.properties['price2'])
+                        $("#CityResult").text(csvContents.properties['city'])
+                        $("#ZipResult").text(csvContents.properties['zip'])
+                        $("#Picture").attr({"img": csvContents.properties['photo']})
+                    });
                 },
                 pointToLayer: function (feature, latlng) {
                     return L.marker(latlng, {icon: house_icon});
@@ -169,11 +176,11 @@
                         layer.closePopup();
                     });
                     layer.on("click", function(e){
-                        $("#AddressResult").text(prop['address'])
-                        $("#PriceResult").text(prop['price2'])
-                        $("#CityResult").text(prop['city'])
-                        $("#ZipResult").text(prop['zip'])
-                        $("#Picture").attr({"img": prop['photo']})
+                        $("#AddressResult").text(csvContent.properties['address'])
+                        $("#PriceResult").text(csvContent.properties['price2'])
+                        $("#CityResult").text(csvContents.properties['city'])
+                        $("#ZipResult").text(csvContents.properties['zip'])
+                        $("#Picture").attr({"img": csvContents.properties['photo']})
                     });
                 },
                 pointToLayer: function (feature, latlng) {
@@ -227,13 +234,5 @@
 
     $(document).ready(createMap);
 
-
-    // $(document).click(function(){
-    //         $("#AddressResult").text(prop['address'])
-    //         $("#PriceResult").text(prop['price2'])
-    //         $("#CityResult").text(prop['city'])
-    //         $("#ZipResult").text(prop['zip'])
-    //         $("#Picture").attr({"img": prop['photo']})
-    //     });
 
 })();

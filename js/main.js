@@ -32,10 +32,10 @@
                         layer.closePopup();
                     });
                     layer.on("click", function (e){
-                        $("#AddressResult").text(csvContents.properties['address'])
-                        $("#PriceResult").text(csvContents.properties['price2'])
-                        $("#CityResult").text(csvContents.properties['city'])
-                        $("#ZipResult").text(csvContents.properties['zip'])
+                        $("#AddressResult p").replaceWith(csvContents.properties['address'])
+                        $("#PriceResult p").text(csvContents.properties['price2'])
+                        $("#CityResult p").text(csvContents.properties['city'])
+                        $("#ZipResult p").text(csvContents.properties['zip'])
                         $("#Picture").attr({"src": csvContents.properties['photo']})
                     });
                 },
@@ -176,10 +176,10 @@
                         layer.closePopup();
                     });
                     layer.on("click", function (e){
-                        $("#AddressResult").text(csvContents.properties['address'])
-                        $("#PriceResult").text(csvContents.properties['price2'])
-                        $("#CityResult").text(csvContents.properties['city'])
-                        $("#ZipResult").text(csvContents.properties['zip'])
+                        $("#AddressResult p").text(csvContents.properties['address'])
+                        $("#PriceResult p").text(csvContents.properties['price2'])
+                        $("#CityResult p").text(csvContents.properties['city'])
+                        $("#ZipResult p").text(csvContents.properties['zip'])
                         $("#Picture").attr({"src": csvContents.properties['photo']})
                     });
                 },

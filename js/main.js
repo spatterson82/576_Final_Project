@@ -32,7 +32,7 @@
                         layer.closePopup();
                     });
                     layer.on("click", function(){
-                        $("#AddressResult").text(csvContents.properties[address])
+                        $("#AddressResult").text(csvContents.properties['address'])
                         $("#PriceResult").text(csvContents.properties['price2'])
                         $("#CityResult").text(csvContents.properties['city'])
                         $("#ZipResult").text(csvContents.properties['zip'])

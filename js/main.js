@@ -36,7 +36,7 @@
                         $("#PriceResult p").text(feature.properties['price2'])
                         $("#CityResult p").text(feature.properties['city'])
                         $("#ZipResult p").text(feature.properties['zip'])
-                        $("#Picture").attr({"src": feature.properties['photo']})
+                        $("#Picture img").attr({"src": feature.properties['photo']})
                     });
                 },
                 pointToLayer: function (feature, latlng) {
@@ -180,7 +180,7 @@
                         $("#PriceResult p").text(feature.properties['price2'])
                         $("#CityResult p").text(feature.properties['city'])
                         $("#ZipResult p").text(feature.properties['zip'])
-                        $("#Picture").attr({"src": feature.properties['photo']})
+                        $("#Picture img").attr({"src": feature.properties['photo']})
                     });
                 },
                 pointToLayer: function (feature, latlng) {

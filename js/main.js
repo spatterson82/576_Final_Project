@@ -32,11 +32,11 @@
                         layer.closePopup();
                     });
                     layer.on("click", function(){
-                        $("#AddressResult").text(csvContent.properties['address'])
-                        $("#PriceResult").text(csvContent.properties['price2'])
+                        $("#AddressResult").text(csvContents.properties['address'])
+                        $("#PriceResult").text(csvContents.properties['price2'])
                         $("#CityResult").text(csvContents.properties['city'])
                         $("#ZipResult").text(csvContents.properties['zip'])
-                        $("#Picture").attr({"img": csvContents.properties['photo']})
+                        $("#Picture").attr({"src": csvContents.properties['photo']})
                     });
                 },
                 pointToLayer: function (feature, latlng) {
@@ -176,8 +176,8 @@
                         layer.closePopup();
                     });
                     layer.on("click", function(){
-                        $("#AddressResult").text(csvContent.properties['address'])
-                        $("#PriceResult").text(csvContent.properties['price2'])
+                        $("#AddressResult").text(csvContents.properties['address'])
+                        $("#PriceResult").text(csvContents.properties['price2'])
                         $("#CityResult").text(csvContents.properties['city'])
                         $("#ZipResult").text(csvContents.properties['zip'])
                         $("#Picture").attr({"src": csvContents.properties['photo']})

@@ -31,7 +31,7 @@
                     layer.on('mouseout', function (e) {
                         layer.closePopup();
                     });
-                    layer.on("click", function(){
+                    layer.on("click", function (e){
                         $("#AddressResult").text(csvContents.properties['address'])
                         $("#PriceResult").text(csvContents.properties['price2'])
                         $("#CityResult").text(csvContents.properties['city'])
@@ -175,7 +175,7 @@
                     layer.on('mouseout', function (e) {
                         layer.closePopup();
                     });
-                    layer.on("click", function(){
+                    layer.on("click", function (e){
                         $("#AddressResult").text(csvContents.properties['address'])
                         $("#PriceResult").text(csvContents.properties['price2'])
                         $("#CityResult").text(csvContents.properties['city'])

@@ -32,10 +32,10 @@
                         layer.closePopup();
                     }),
                     layer.on("click", function (e){
-                        $("#AddressResult p").text(feature.properties['address'])
-                        $("#PriceResult p").text(feature.properties['price2'])
-                        $("#CityResult p").text(feature.properties['city'])
-                        $("#ZipResult p").text(feature.properties['zip'])
+                        $("#Address p:second").text(feature.properties['address'])
+                        $("#QueryPrice p:second").text(feature.properties['price2'])
+                        $("#City p:second").text(feature.properties['city'])
+                        $("#Zip p:second").text(feature.properties['zip'])
                         $("#Picture img").attr({"src": feature.properties['photo']})
                     });
                 },

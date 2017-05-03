@@ -32,10 +32,10 @@
                         layer.closePopup();
                     }),
                     layer.on("click", function (e){
-                        $("#Address p:second").text(feature.properties['address'])
-                        $("#QueryPrice p:second").text(feature.properties['price2'])
-                        $("#City p:second").text(feature.properties['city'])
-                        $("#Zip p:second").text(feature.properties['zip'])
+                        $("#Address p:odd").text(feature.properties['address'])
+                        $("#QueryPrice p:odd").text(feature.properties['price2'])
+                        $("#City p:odd").text(feature.properties['city'])
+                        $("#Zip p:odd").text(feature.properties['zip'])
                         $("#Picture img").attr({"src": feature.properties['photo']})
                     });
                 },

@@ -35,7 +35,7 @@
                         $("#address p:odd").text(csvContents.properties['address'])
                         $("#QueryPrice p:odd").text(csvContents.properties['price2'])
                         $("#City p:odd").text(csvContents.properties['city'])
-                        $("#Zip p:odd").text(csvContents.properties['zip'])
+                        $("#Zip p:odd").text('0' + csvContents.properties['zip'])
                         $("#Link").html('<a href="' + csvContents.properties['listing'] + '" target="_blank">View Full Listing</a>')
                         $("#picture").attr("src", csvContents.properties['photo'])
                     });
@@ -179,7 +179,7 @@
                         $("#AddressResult p").text(csvContents.properties['address'])
                         $("#PriceResult p").text(csvContents.properties['price2'])
                         $("#CityResult p").text(csvContents.properties['city'])
-                        $("#ZipResult p").text(csvContents.properties['zip'])
+                        $("#ZipResult p").text('0' + csvContents.properties['zip'])
                         $("#Link").html('<a href="' + csvContents.properties['listing'] + '" target="_blank">View Full Listing</a>')
                         $("#picture").attr("src", csvContents.properties['photo'])
                     });

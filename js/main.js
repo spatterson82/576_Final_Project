@@ -32,7 +32,7 @@
                         layer.closePopup();
                     }),
                     layer.on("click", function (e){
-                        $("#Address p:odd").text(feature.properties['address'])
+                        $("#Address p:last").text(feature.properties['address'])
                         $("#QueryPrice p:odd").text(feature.properties['price2'])
                         $("#City p:odd").text(feature.properties['city'])
                         $("#Zip p:odd").text(feature.properties['zip'])

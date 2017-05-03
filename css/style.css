@@ -28,7 +28,8 @@ html, body, .container {
 
 
 #panel2 {
-    background:white;
+    background:lightgrey;
+    position: relative;
     height: 100%;
     text-align: center;
     border: 2px solid black;
@@ -46,12 +47,16 @@ html, body, .container {
 
 #address{
     background: white;
-    position: relative;
-    height: 20%;
+    position: absolute;
+    height: 10%;
     width: 100%;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding-top: 5px;    
+    text-align: left;  
+}
+#address p{
+    display: inline-block;
+    vertical-align: top;
 }
 
 #QueryAddress{
@@ -62,64 +67,51 @@ html, body, .container {
     width: 100%;
     text-align: left;
 }
-#AddressResult{
-    background: white;
-    position: absolute;
-    bottom: 0;
-    height: 80%;
-    width: 100%;
-    text-align: left;
-    border-top: 2px solid black;
-}
 #QueryPrice{
     background: white;
     position: absolute;
     bottom: 0;
-    height: 50%;
-    width: 100%;
-    text-align: left;
-    border-top: 2px solid black;
-}
-#PriceResult{
-    background: white;
-    position: absolute;
-    bottom:0;
-    height: 60%;
+    height: 57%;
     width: 100%;
     text-align: left;
     border-top: 2px solid black;
 }
 #midpanel{
     background: white;
-    height: auto;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
 }
 #City{
     background: white;
-    height: auto;
-    text-align: left;
-    border-top: 2px solid black;
-}
-#CityResult{
-    background: white;
-    height: auto;
+    height: 7%;
     text-align: left;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+}
+#City p{
+    display: inline-block;
+    vertical-align: top;
 }
 #Zip{
     background: white;
-    height: auto;
+    height: 7%;
     text-align: left;
-}
-#ZipResult{
-    background: white;
-    height: auto;
-    text-align: left;
-    border-top: 2px solid black;
     border-bottom: 2px solid black;
+}
+#Zip p{
+    display: inline-block;
+    vertical-align: top;
 }
 #Picture{
     background: white;
-    height: 100%;
+    height: auto;
     width: 100%;
+}
+#Link{
+    background: white;
+    height: 7%;
+    text-align: left;
+    border-bottom: 2px solid black;
 }

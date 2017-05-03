@@ -23,20 +23,21 @@
             var geoLayer = L.geoCsv(csvContents, {
                 firstLineTitles: true,
                 fieldSeparator: ',',
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup(createPopup(feature));
-                    layer.on('mouseover', function (e) {
+                onEachFeature: function (csvContents, layer) {
+                    layer.bindPopup(createPopup(csvContents));
+                    layer.on('mouseover', function () {
                         this.openPopup();
                     }),
-                    layer.on('mouseout', function (e) {
+                    layer.on('mouseout', function () {
                         layer.closePopup();
                     }),
-                    layer.on("click", function (e){
-                        $("#address p:odd").text(feature.properties['address'])
-                        $("#QueryPrice p:odd").text(feature.properties['price2'])
-                        $("#City p:odd").text(feature.properties['city'])
-                        $("#Zip p:odd").text(feature.properties['zip'])
-                        $("#Picture img").attr({"src": feature.properties['photo']})
+                    layer.on("click", function (){
+                        $("#address p:odd").text(csvContents.properties['address'])
+                        $("#QueryPrice p:odd").text(csvContents.properties['price2'])
+                        $("#City p:odd").text(csvContents.properties['city'])
+                        $("#Zip p:odd").text(csvContents.properties['zip'])
+                        $("#Link").html('<a href="' + csvContents.properties['listing'] + '" target="_blank">View Full Listing</a>')
+                        $("#picture").attr("src", csvContents.properties['photo'])
                     });
                 },
                 pointToLayer: function (feature, latlng) {
@@ -62,7 +63,6 @@
         var pop_up = L.popup()
             .setContent('<p>' + full_address +
                 '<br />Listing Price: ' + currency +
-                '<br /><a href="' + prop['listing'] + '" target="_blank">View Full Listing</a>' +
                 '<br /><img src="' + prop['photo'] + '" height="200" width="200"></p>');
 
         return pop_up;
@@ -167,8 +167,8 @@
             var geoLayer = L.geoCsv(csvContents, {
                 firstLineTitles: true,
                 fieldSeparator: ',',
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup(createPopup(feature));
+                onEachFeature: function (csvContents, layer) {
+                    layer.bindPopup(createPopup(csvContents));
                     layer.on('mouseover', function (e) {
                         this.openPopup();
                     }),
@@ -176,11 +176,12 @@
                         layer.closePopup();
                     }),
                     layer.on("click", function (e){
-                        $("#AddressResult p").text(feature.properties['address'])
-                        $("#PriceResult p").text(feature.properties['price2'])
-                        $("#CityResult p").text(feature.properties['city'])
-                        $("#ZipResult p").text(feature.properties['zip'])
-                        $("#Picture img").attr({"src": feature.properties['photo']})
+                        $("#AddressResult p").text(csvContents.properties['address'])
+                        $("#PriceResult p").text(csvContents.properties['price2'])
+                        $("#CityResult p").text(csvContents.properties['city'])
+                        $("#ZipResult p").text(csvContents.properties['zip'])
+                        $("#Link").html('<a href="' + csvContents.properties['listing'] + '" target="_blank">View Full Listing</a>')
+                        $("#picture").attr("src", csvContents.properties['photo'])
                     });
                 },
                 pointToLayer: function (feature, latlng) {

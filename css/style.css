@@ -13,7 +13,9 @@ html, body, .container {
 .row-fluid {
     height: 50%;
 }
-
+.row-fluid2 {
+    height: 50%;
+}
 #mapid {
     height: 100%;
 }
@@ -21,8 +23,8 @@ html, body, .container {
     height: 100%;
 }
 
-#panel1 {
-    background:white;
+#panel1  {
+    background: white;
     height: 100%;
 }
 

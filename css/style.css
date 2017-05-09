@@ -26,6 +26,7 @@ html, body, .container {
 #panel1  {
     background: white;
     height: 100%;
+    overflow: auto;
 }
 
 
@@ -35,6 +36,7 @@ html, body, .container {
     height: 100%;
     text-align: center;
     border: 2px solid black;
+    overflow: auto;
 }
 
 .row2 {
